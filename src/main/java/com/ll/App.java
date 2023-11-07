@@ -4,6 +4,7 @@ import java.util.Scanner;
 
 public class App {
     public void run() {
+        int count= 0;
         System.out.println("== 명언 앱 ==");
 
         while (true) {
@@ -21,7 +22,8 @@ public class App {
                 System.out.print("작가 : ");
                 String authorName = scanner.nextLine();
 
-                System.out.println("1번 명언이 등록되었습니다.");
+                count = count + 1;
+                System.out.println(count +"번 명언이 등록되었습니다.");
 
                 System.out.printf("명언 : %s, 작가 : %s\n", content, authorName);
             }
