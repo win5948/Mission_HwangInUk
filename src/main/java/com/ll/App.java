@@ -59,7 +59,7 @@ public class App {
                     if (removed) {
                         System.out.println(id + "번 명언이 삭제되었습니다.");
                     } else {
-                        System.out.println(id + "번 명언을 찾을 수 없습니다.");
+                        System.out.println(id + "번 명언은 존재하지 않습니다.");
                     }
                 } catch (NumberFormatException e) {
                     System.out.println("잘못된 명령입니다. 명령 형식 삭제?id=<번호>");
