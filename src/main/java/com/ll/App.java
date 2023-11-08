@@ -64,6 +64,37 @@ public class App {
                 } catch (NumberFormatException e) {
                     System.out.println("잘못된 명령입니다. 명령 형식 삭제?id=<번호>");
                 }
+            } else if (cmd.startsWith("수정?id=")) {
+                try {
+                    String idString = cmd.substring(6);
+                    int id = Integer.parseInt(idString);
+                    boolean found = false;
+                    Iterator<Quotation> iterator = quotations.iterator();
+
+                    while (iterator.hasNext()) {
+                        Quotation quotation = iterator.next();
+                        if (quotation.getNumber() == id) {
+                            System.out.print("명언(기존) : " + quotation.getContent() + "\n명언 : ");
+                            String newContent = scanner.nextLine();
+
+                            System.out.print("작가(기존) : " + quotation.getAuthorName() + "\n작가 : ");
+                            String newAuthorName = scanner.nextLine();
+
+                            quotation.content = newContent;
+                            quotation.author = newAuthorName;
+                            found = true;
+                            System.out.println(id + "번 명언이 수정되었습니다.");
+                            break;
+                        }
+                    }
+                    if (!found) {
+                        System.out.println(id + "번 명언을 찾을 수 없습니다.");
+                    }
+                } catch (NumberFormatException e) {
+                    System.out.println("잘못된 명령입니다. 명령 형식 수정?id=<번호>");
+
+                }
+
             }
         }
     }
